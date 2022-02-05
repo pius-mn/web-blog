@@ -27,6 +27,7 @@ urlpatterns = [
     path('logout/', views.LogoutView.as_view(), name='logout'),
     # app url configs
     path('',include('blogs.urls')),
+    path('dashboard/',include('accounts.urls')),
     
 ]
 
