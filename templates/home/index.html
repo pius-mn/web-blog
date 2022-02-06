@@ -46,7 +46,7 @@
                         {% else %}
                             <img class="rounded-circle shadow" height="20" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt="">
                         {% endif %}
-						<a class="text-muted" href="./author.html">{{s_post.author.author.username}}</a></small>
+						<a class="text-muted" href="#">{{s_post.author.author.username}}</a></small>
 						<small class="text-muted">{{ s_post.created_at | timesince }} ago .  {{s_post.visit_count}} views</small>
 					</div>
 				</div>
@@ -67,27 +67,27 @@
 			<h5 class="font-weight-bold spanborder"><span>All Stories</span></h5>
 
 
-            {% for p in post %}
+            {% for cat in category %}
 			<div class="mb-3 d-flex justify-content-between">
 				<div class="pr-3">
 					<h2 class="mb-1 h4 font-weight-bold">
-					<a class="text-dark" href="{% url 'single_blog' p.id %}">{{p.title}}</a>
+					<a class="text-dark" href="{% url 'catagory' cat.slug %}">{{ cat }}</a></a>
 					</h2>
 					<p>
-						{{ p.detail |truncatechars:100 }}
+						{{ cat.description |truncatechars:100 }}
 					</p>
 					<div class="card-text text-muted small">
-                        {% if p.author.author_image %}
-						    <img height="20" class="rounded-circle shadow" style="border-radius: 50%;" src="{{ p.author.author_image.url }}">
+                        {% if cat.image %}
+						    <img height="20" class="rounded-circle shadow" style="border-radius: 50%;" src="{{ cat.image }}">
                         {% else %}
                             <img class="rounded-circle shadow" height="20" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt="">
                         {% endif %}
-                        {{ p.author.author.username }} in <a class="text-dark" href="{% url 'catagory' p.catagories.slug %}">{{ p.catagories }} </a>
+                       
 
 					</div>
-					<small class="text-muted">{{p.created_at|timesince }} ago ; {{ p.visit_count}} views </small>
+					
 				</div>
-				<img height="120" src="{{ p.image_url }}">
+				<img height="120" src="{{ cat.image }}">
 			</div>
             {% endfor %}
 
