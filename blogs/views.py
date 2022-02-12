@@ -56,10 +56,11 @@ class HomeView(View):
 # single blog views
 class SingleBlogView(View):
     def get(self,request,id,*args,**kwargs):
-        post_obj = get_object_or_404(Blog, id=id)
+        print(f"the id iis   {id}")
+        post_obj = get_object_or_404(Blog, title=id)
         post_obj.visit_count = post_obj.visit_count + 1
         post_obj.save()
-        releted_post = Blog.objects.filter(author=post_obj.author).exclude(id=id).order_by('-id')[:4]
+        releted_post = Blog.objects.filter(author=post_obj.author).exclude(title=id).order_by('-id')[:4]
         # As per templates views 
         first_post = releted_post.first()
         last_post  = releted_post[1:]

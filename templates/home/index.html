@@ -14,7 +14,7 @@
 						{{first.detail |truncatechars:200 }}
 					</p>
 
-					<a href="{% url 'single_blog' first.id %}" class="btn btn-dark">Read More</a>
+					<a href="{% url 'single_blog' first.title %}" class="btn btn-dark">Read More</a>
 				</div>
 				<div class="col-md-6 d-none d-md-block pr-0" ><img style="background-size: cover;" src="{{ first.image_url }}" alt="">	</div>
 			</div>
@@ -34,7 +34,7 @@
 				</div>
 				<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
 					<h2 class="h4 font-weight-bold">
-					<a class="text-dark" href="{% url 'single_blog' first.id %}"> {{ s_post.title}} </a>
+					<a class="text-dark" href="{% url 'single_blog' s_post.title %}"> {{ s_post.title}} </a>
 					</h2>
 					<p class="card-text">
 						{{s_post.detail|truncatechars:150}}
@@ -101,7 +101,7 @@
 				<li>
 				<span>
 				<h6 class="font-weight-bold">
-				<a href="{% url 'single_blog' p.id %}">{{ p.title }}?</a>
+				<a href="{% url 'single_blog' p.title %}">{{ p.title }}?</a>
 				</h6>
 				<p class="text-muted">
 				By	{{ p.author }}

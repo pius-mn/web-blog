@@ -142,7 +142,7 @@
 				</div>
 				<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
 					<h2 class="h4 font-weight-bold">
-					<a class="text-dark" href="{% url 'single_blog' first.id %}"> {{ first.title}} </a>
+					<a class="text-dark" href="{% url 'single_blog' first.title %}"> {{ first.title}} </a>
 					</h2>
 					<p class="card-text">
 						{{first.detail|truncatechars:150}}
@@ -170,7 +170,7 @@
 					<img height="80" src="{{p.image_url}}">
 					<div class="pl-3">
 						<h2 class="mb-2 h6 font-weight-bold">
-						<a class="text-dark" href="{% url 'single_blog' p.id %}">{{p.title}}</a>
+						<a class="text-dark" href="{% url 'single_blog' p.title %}">{{p.title}}</a>
 						</h2>
 						<div class="card-text text-muted small">
 						{% if p.author.author_image %}
